@@ -1,0 +1,16 @@
+global:
+  log_level: "debug"
+  environment: "test"
+modules:
+  - name: "postgresql"
+    enabled: true
+    path: "./postgresql.so"
+    config_file: "./etc/postgresql.yaml"
+
+
+
+# ETCDCTL_API=3 /opt/etcd/bin/etcdctl \
+#   --endpoints=http://192.168.56.101:2379,http://192.168.56.102:2379,http://192.168.56.103:2379 \
+#   member list -w table
+
+

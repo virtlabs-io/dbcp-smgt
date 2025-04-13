@@ -1,0 +1,31 @@
+# PostgreSQL-specific configuration
+postgresql:
+  version: "13.3"
+  install_dir: "/opt/postgresql"
+  data_dir: "/var/lib/postgresql/13/main"
+  port: 5432
+  max_connections: 200
+  username: "postgres"
+  password: "secret"
+  cluster_name: "main_cluster"
+  backup_enabled: true
+  backup_dir: "/backup/postgresql"
+  retention_days: 7
+  maintenance_window: "Sunday 02:00"
+  replication_enabled: false
+
+  # Advanced service parameters
+  cache_size: "512MB"
+  log_directory: "/var/log/postgresql"
+  timezone: "UTC"
+  ssl_enabled: true
+  locale: "en_US.UTF-8"
+  autovacuum: true
+  data_encryption: false
+
+  # Repository definitions for package installation.
+  # These values are returned by the service’s PackageInfoProvider implementation.
+  repositories:
+    apt: "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main"
+    rpm: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{rhel})-x86_64/"
+    custom: ""
